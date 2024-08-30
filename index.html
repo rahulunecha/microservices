@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interactive Gravity Control</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+.star {
+  transform-style: preserve-3d;
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  color: red;
+  pointer-events: none;
+}
+.star:before {
+  position: absolute;
+  content: '\2726';
+  color: inherit;
+  inset: 0;
+  //box-shadow: 0 0 1em .5em #a3c2;
+  //filter: drop-shadow(0 0 .5em white);
+  text-shadow: 0 0 1em #fff5;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  color: #F9F6EF;
+  display: grid;
+  place-content: center;
+  background-image: 
+    radial-gradient(
+    circle at 50% 50%,
+      #2f3040,
+      #1f2020
+    );
+}
+.chooser {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  label{
+    text-align: center;
+    transition: .4s ease;
+    border: 1px solid #AEE1CD20;
+    padding: .5em 1em;
+    cursor: pointer;
+  }
+  input[type='radio'] {
+    display: none;
+    &:checked + label {
+      color: #FFE681;
+      border: 1px inset #AEE1CD90;
+    }
+    &:not(:checked) + label {
+        &:hover{
+        color: #D1CDDA;
+        box-shadow: inset 1px 1px #F9F6EF40;
+        background-color: #1f202050;
+      }
+      &:active {
+        box-shadow: inset -1px -1px #F9F6EF40;
+      }
+    }
+  }
+}
+
+  </style>
+</head>
+<body>
+  <h1> > MICRO SERVICES < </h1>
+  <script>
+    //look at fixes in the Pen https://codepen.io/ghaste/pen/OJqLbvg
+//for adding mouse trail to a page that scrolls beyond the viewport, as would be the case with most websites - lol
+let fallDirection = 1;
+document
+  .querySelectorAll('input[name="trailside"]')
+  .forEach(
+  r => {
+    r.addEventListener(
+      'change',
+      e => {
+        fallDirection = parseInt(e.target.value);
+        //console.log(fallDirection);
+      }
+    );
+  }
+);
+
+let x1=0, y1=0;
+window.client
+const 
+  vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0),
+  dist_to_draw = 50,
+  delay = 1000,
+  fsize = [
+    '1.1rem', '1.4rem', '.8rem', '1.7rem'
+  ],
+  colors = [
+  '#E23636',
+  '#F9F3EE',
+  '#E1F8DC',
+  '#B8AFE6',
+  '#AEE1CD',
+  '#5EB0E5'
+],
+  rand = (min, max) => 
+    Math.floor(Math.random() * (max - min + 1)) + min,
+  selRand = (o) => o[rand(0, o.length -1)],
+  distanceTo =  (x1, y1, x2, y2) => 
+    Math.sqrt((Math.pow(x2-x1,2))+(Math.pow(y2-y1,2))),
+  shouldDraw = (x, y) => 
+    (distanceTo(x1, y1, x, y) >= dist_to_draw),
+  addStr = (x, y) => {
+    const str = document.createElement("div");
+    str.innerHTML = '&#10022;';
+    str.className = 'star';
+    str.style.top = `${y + rand(-20,20)}px`;
+    str.style.left = `${x}px`;
+    str.style.color = selRand(colors);
+    str.style.fontSize = selRand(fsize);
+    document.body.appendChild(str);
+    //console.log(rand(0, 3));
+    const fs = 10 + 5 * parseFloat(getComputedStyle(str).fontSize);
+    //console.log(vh, y, fs);
+    //console.log((y+fs)>vh?vh-y:fs);
+    str.animate(
+      {
+        translate: [
+          `${rand(-5, 5)}px ${((y+fs)>vh?vh-y:fs) * fallDirection * .3}px`,
+          `${rand(-20, 20)}px ${((y+fs)>vh?vh-y:fs) * fallDirection}px`],
+        opacity: [1,0],
+        transform: ['rotateX(0) rotateY(0)',`rotateX(${rand(1, 500)}deg) rotateY(${rand(1, 500)}deg)`]
+      }, {
+        duration: delay,
+        fill: 'forwards',
+        rangeStart: ["cover 0% ", "cover 40%"],
+        rangeEnd: ["cover 40% ", "cover 100%"]
+    });
+    //could add a animation terminate listener, but why add the additional load
+    setTimeout(() => {
+        str.remove();
+      }, delay);
+  }
+
+addEventListener("mousemove", (e) => {
+  const {clientX, clientY} = e;
+  if(shouldDraw(clientX, clientY)){
+    addStr(clientX, clientY);
+    x1 = clientX;
+    y1 = clientY;
+  }
+});
+  </script>
+  <div class="chooser">
+    <input type="radio" checked value="1" name="trailside" id="r1">
+<label for="r1"><a href="http://16.170.231.194:3000/" target="_blank" style="text-decoration: none; color: inherit;">Employee</a></label><br>
+
+    
+    
+  <input type="radio" checked value="1" name="trailside" id="r1">
+<label for="r1"><a href="http://13.51.238.99:86/" target="_blank" style="text-decoration: none; color: inherit;">Student</a></label><br>
+  
+    
+    
+    
+    
+    <input type="radio" checked value="1" name="trailside" id="r1">
+<label for="r1"><a href="http://13.51.238.99:81/" target="_blank" style="text-decoration: none; color: inherit;">TODO</a></label><br>
+
+    <input type="radio" checked value="1" name="trailside" id="r1">
+<label for="r1"><a href="http://13.51.238.99:82/" target="_blank" style="text-decoration: none; color: inherit;">Counter</a></label><br>
+
+    
+    <input type="radio" checked value="1" name="trailside" id="r1">
+<label for="r1"><a href="http://13.51.238.99:83/" target="_blank" style="text-decoration: none; color: inherit;">Trafic Light</a></label><br>
+
+
+    <input type="radio" checked value="1" name="trailside" id="r1">
+<label for="r1"><a href="http://13.51.238.99:84/" target="_blank" style="text-decoration: none; color: inherit;"> Puppy</a></label><br>
+
+
+<input type="radio" checked value="1" name="trailside" id="r1">
+<label for="r1"><a href="http://13.51.238.99:85/" target="_blank" style="text-decoration: none; color: inherit;">Number</a></label><br>
+
+    <input type="radio" checked value="1" name="trailside" id="r1">
+<label for="r1"><a href="http://13.51.238.99/" target="_blank" style="text-decoration: none; color: inherit;">Vr-web</a></label><br>
+
+  </div>
+</body>
+</html>
