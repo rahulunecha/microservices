@@ -1,5 +1,3 @@
-version: '3'
-
 services:          # default syntax
   frontendnginxfirst:        # naming convention for container
     build: /opt/microservices/allservices/service/counter/ # location of the docker file
