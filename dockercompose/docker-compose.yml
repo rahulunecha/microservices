@@ -40,7 +40,7 @@ services:          # default syntax
         bridge
 
   frontendnginxfifth:
-    build: /opt/microservices/allservices/service/trafficlight/ # location of the docker file
+    build: /opt/microservices/allservices/service/traffic light/ # location of the docker file
     ports:     
       - '84:80'
     container_name: contfifth  # providing name to container
