@@ -62,9 +62,9 @@ services:          # default syntax
         bridge
 
 volumes: 
-  myapp_1:
-  myapp_2:
-  myapp_3:
-  myapp_4:
-  myapp_5:
-  myapp_6:
+  myapp_first:
+  myapp_second:
+  myapp_third:
+  myapp_fourth:
+  myapp_fifth:
+  myapp_sixth:
