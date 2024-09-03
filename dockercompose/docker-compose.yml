@@ -1,6 +1,6 @@
 services:          # default syntax
   frontendnginxfirst:        # naming convention for container
-    build: /opt/microservices/allservices/service/counter/ # location of the docker file
+    build: /opt/microservices/allservices/pprojects/counter/ # location of the docker file
     ports:     # port mapping my container to host port 
       - '80:80'  
     container_name: contfirst  # providing name to container
@@ -10,7 +10,7 @@ services:          # default syntax
         bridge
 
   frontendnginxsecond:
-    build: /opt/microservices/allservices/service/numberaddition/ # location of the docker file
+    build: /opt/microservices/allservices/pprojects/numberaddition/ # location of the docker file
     ports:     # port mapping my container to host port 
       - '81:80'
     container_name: contsecond  # providing name to container
@@ -20,7 +20,7 @@ services:          # default syntax
         bridge
 
   frontendnginxthird:
-    build: /opt/microservices/allservices/service/puppy/ # location of the docker file
+    build: /opt/microservices/allservices/pprojects/puppy/ # location of the docker file
     ports:     
       - '82:80'
     container_name: contthird  # providing name to container
@@ -30,7 +30,7 @@ services:          # default syntax
         bridge
 
   frontendnginxfourth:
-    build: /opt/microservices/allservices/service/todo/ # location of the docker file
+    build: /opt/microservices/allservices/pprojects/todo/ # location of the docker file
     ports:     
       - '83:80'
     container_name: contfourth  # providing name to container
@@ -40,7 +40,7 @@ services:          # default syntax
         bridge
 
   frontendnginxfifth:
-    build: /opt/microservices/allservices/service/traffic light/ # location of the docker file
+    build: /opt/microservices/allservices/pprojects/traffic light/ # location of the docker file
     ports:     
       - '84:80'
     container_name: contfifth  # providing name to container
@@ -50,7 +50,7 @@ services:          # default syntax
         bridge
 
   frontendnginxsixth:
-    build: /opt/microservices/allservices/service/vr-website/ # location of the docker file
+    build: /opt/microservices/allservices/pprojects/vr-website/ # location of the docker file
     ports:     
       - '85:80'
     container_name: contsixth  # providing name to container
