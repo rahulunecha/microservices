@@ -1,58 +1,41 @@
 services:          # default syntax
-  frontendnginxfirst:        # naming convention for container
+  frontendfirst:        # naming convention for container
     build: /opt/microservices/allservices/pprojects/counter/ # location of the docker file
     ports:     # port mapping my container to host port 
       - '80:80'  
     container_name: contfirst  # providing name to container
-    volumes:   # mounting persistent volume of my host to container
-      - myapp_first:/usr/share/nginx/html/
     network_mode:   # providing network mode
         bridge
 
-  frontendnginxsecond:
+  frontendsecond:
     build: /opt/microservices/allservices/pprojects/numberaddition/ # location of the docker file
     ports:     # port mapping my container to host port 
       - '81:80'
     container_name: contsecond  # providing name to container
-    volumes:   
-      - myapp_second:/usr/share/nginx/html/
     network_mode:   
         bridge
 
-  frontendnginxthird:
+  frontendthird:
     build: /opt/microservices/allservices/pprojects/puppy/ # location of the docker file
     ports:     
       - '82:80'
     container_name: contthird  # providing name to container
-    volumes:   
-      - myapp_third:/usr/share/nginx/html/
     network_mode:   
         bridge
 
-  frontendnginxfifth:
+  frontendfifth:
     build: /opt/microservices/allservices/pprojects/traffic light/ # location of the docker file
     ports:     
       - '84:80'
     container_name: contfifth  # providing name to container
-    volumes:   
-      - myapp_fifth:/usr/share/nginx/html/
     network_mode:   
         bridge
 
-  frontendnginxsixth:
+  frontendsixth:
     build: /opt/microservices/allservices/pprojects/Vr-website/ # location of the docker file
     ports:     
       - '85:80'
     container_name: contsixth  # providing name to container
-    volumes:   
-      - myapp_sixth:/usr/share/nginx/html/
     network_mode:   
         bridge
 
-volumes: 
-  myapp_first:
-  myapp_second:
-  myapp_third:
-  myapp_fourth:
-  myapp_fifth:
-  myapp_sixth:
