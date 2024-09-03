@@ -29,16 +29,6 @@ services:          # default syntax
     network_mode:   
         bridge
 
-  frontendnginxfourth:
-    build: /opt/microservices/allservices/pprojects/todo/ # location of the docker file
-    ports:     
-      - '83:80'
-    container_name: contfourth  # providing name to container
-    volumes:   
-      - myapp_fourth:/usr/share/nginx/html/
-    network_mode:   
-        bridge
-
   frontendnginxfifth:
     build: /opt/microservices/allservices/pprojects/traffic light/ # location of the docker file
     ports:     
