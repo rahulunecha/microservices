@@ -1,79 +1,70 @@
-services:          #default synxtax
-  frontendnginxfirst:        #naming convention for container
-    build: /opt/microservices/allservices/service/counter/ #location of the docker file
-    ports:     #port mapping my container to host port 
+version: '3'
+
+services:          # default syntax
+  frontendnginxfirst:        # naming convention for container
+    build: /opt/microservices/allservices/service/counter/ # location of the docker file
+    ports:     # port mapping my container to host port 
       - '80:80'  
-    container_name: contfirst  #providing name to container
-    volumes:   #mounting persistent volume of my host to container
-      - myapp:/usr/share/nginx/html/
-    network_mode:   #providing network mode
+    container_name: contfirst  # providing name to container
+    volumes:   # mounting persistent volume of my host to container
+      - myapp_first:/usr/share/nginx/html/
+    network_mode:   # providing network mode
         bridge
-volumes: 
-      myapp:
 
-services:          #default synxtax
-  frontendnginxfirst:        #naming convention for container
-    build: /opt/microservices/allservices/service/numberaddition/ #location of the docker file
-    ports:     #port mapping my container to host port 
-      - '81:80'  
-    container_name: contfirst  #providing name to container
-    volumes:   #mounting persistent volume of my host to container
-      - myapp:/usr/share/nginx/html/
-    network_mode:   #providing network mode
+  frontendnginxsecond:
+    build: /opt/microservices/allservices/service/numberaddition/ # location of the docker file
+    ports:     # port mapping my container to host port 
+      - '81:80'
+    container_name: contsecond  # providing name to container
+    volumes:   
+      - myapp_second:/usr/share/nginx/html/
+    network_mode:   
         bridge
-volumes: 
-      myvol:      
 
-services:          #default synxtax
-  frontendnginxfirst:        #naming convention for container
-    build: /opt/microservices/allservices/service/puppy/ #location of the docker file
-    ports:     #port mapping my container to host port 
-      - '82:80'  
-    container_name: contfirst  #providing name to container
-    volumes:   #mounting persistent volume of my host to container
-      - myapp:/usr/share/nginx/html/
-    network_mode:   #providing network mode
+  frontendnginxthird:
+    build: /opt/microservices/allservices/service/puppy/ # location of the docker file
+    ports:     
+      - '82:80'
+    container_name: contthird  # providing name to container
+    volumes:   
+      - myapp_third:/usr/share/nginx/html/
+    network_mode:   
         bridge
-volumes: 
-      myapp:      
 
-services:          #default synxtax
-  frontendnginxfirst:        #naming convention for container
-    build: /opt/microservices/allservices/service/todo/ #location of the docker file
-    ports:     #port mapping my container to host port 
-      - '83:80'  
-    container_name: contfirst  #providing name to container
-    volumes:   #mounting persistent volume of my host to container
-      - myapp:/usr/share/nginx/html/
-    network_mode:   #providing network mode
+  frontendnginxfourth:
+    build: /opt/microservices/allservices/service/todo/ # location of the docker file
+    ports:     
+      - '83:80'
+    container_name: contfourth  # providing name to container
+    volumes:   
+      - myapp_fourth:/usr/share/nginx/html/
+    network_mode:   
         bridge
-volumes: 
-      myapp:  
 
-
-services:          #default synxtax
-  frontendnginxfirst:        #naming convention for container
-    build: /opt/microservices/allservices/service/traffic light/ #location of the docker file
-    ports:     #port mapping my container to host port 
-      - '84:80'  
-    container_name: contfirst  #providing name to container
-    volumes:   #mounting persistent volume of my host to container
-      - myapp:/usr/share/nginx/html/
-    network_mode:   #providing network mode
+  frontendnginxfifth:
+    build: /opt/microservices/allservices/service/trafficlight/ # location of the docker file
+    ports:     
+      - '84:80'
+    container_name: contfifth  # providing name to container
+    volumes:   
+      - myapp_fifth:/usr/share/nginx/html/
+    network_mode:   
         bridge
-volumes: 
-      myapp:
 
-services:          #default synxtax
-  frontendnginxfirst:        #naming convention for container
-    build: /opt/microservices/allservices/service/Vr-website/ #location of the docker file
-    ports:     #port mapping my container to host port 
-      - '85:80'  
-    container_name: contfirst  #providing name to container
-    volumes:   #mounting persistent volume of my host to container
-      - myapp:/usr/share/nginx/html/
-    network_mode:   #providing network mode
+  frontendnginxsixth:
+    build: /opt/microservices/allservices/service/vr-website/ # location of the docker file
+    ports:     
+      - '85:80'
+    container_name: contsixth  # providing name to container
+    volumes:   
+      - myapp_sixth:/usr/share/nginx/html/
+    network_mode:   
         bridge
+
 volumes: 
-      myapp:
-    
+  myapp_1:
+  myapp_2:
+  myapp_3:
+  myapp_4:
+  myapp_5:
+  myapp_6:
