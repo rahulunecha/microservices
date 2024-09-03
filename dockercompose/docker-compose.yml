@@ -8,7 +8,6 @@ services:          #default synxtax
       - myapp:/usr/share/nginx/html/
     network_mode:   #providing network mode
         bridge
-
 volumes: 
       myapp:
 
@@ -22,7 +21,6 @@ services:          #default synxtax
       - myapp:/usr/share/nginx/html/
     network_mode:   #providing network mode
         bridge
-
 volumes: 
       myvol:      
 
@@ -36,7 +34,6 @@ services:          #default synxtax
       - myapp:/usr/share/nginx/html/
     network_mode:   #providing network mode
         bridge
-
 volumes: 
       myapp:      
 
@@ -50,7 +47,6 @@ services:          #default synxtax
       - myapp:/usr/share/nginx/html/
     network_mode:   #providing network mode
         bridge
-
 volumes: 
       myapp:  
 
@@ -65,7 +61,6 @@ services:          #default synxtax
       - myapp:/usr/share/nginx/html/
     network_mode:   #providing network mode
         bridge
-
 volumes: 
       myapp:
 
@@ -79,7 +74,6 @@ services:          #default synxtax
       - myapp:/usr/share/nginx/html/
     network_mode:   #providing network mode
         bridge
-
 volumes: 
       myapp:
     
